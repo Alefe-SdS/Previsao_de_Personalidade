@@ -52,6 +52,8 @@ A aplicação prevê traços de personalidade com base em um conjunto de dados s
   
 1. Execute o app Flask:
 ```bash
+Abrir um novo terminal e selecionar 'git bash' e depois digitar o comando abaixo:
+
 ALEFE@DESKTOP-PFBKURH MINGW64 ~/Documents/ML
 $ cd notebook (Para entrar na pasta notebook)
 

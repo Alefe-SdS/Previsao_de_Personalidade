@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificador de Personalidade</title>
+    
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7b1d1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+}
+
+       .container {
+    background-color: #fff;
+    padding: 30px 60px; /* aumenta o padding lateral */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;   /* aumenta a largura máxima */
+}
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #b9099c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ab7aaa;
+        }
+
+       
+        .radio-group {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.radio-option {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.radio-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.perguntas-colunas {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.coluna {
+    flex: 1;
+    min-width: 320px;
+}
+
+.pergunta-final {
+    margin: 32px auto 0 auto;
+    max-width: 700px;
+    text-align: center;
+}
+.perguntas-colunas {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.coluna {
+    flex: 1;
+    min-width: 320px;
+    padding: 0 20px;
+}
+
+.perguntas-colunas .coluna:nth-child(2) {
+    border-left: 2px solid #e0a4c2;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Fundo animado neon */
+    background: linear-gradient(120deg, #f7b1d1, #e04ac7, #f7b1d1, #e04ac7, #f7b1d1);
+    background-size: 400% 400%;
+    animation: neon-bg 6s linear infinite;
+}
+
+@keyframes neon-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+    </style>
+<body>
+    <div class="container">
+        <h1>Classificador de Personalidade</h1>
+       <form id="formulario">
+    <div class="perguntas-colunas">
+        <div class="coluna">
+            <label>Quanto tempo você gosta de passar sozinho durante o dia? (1 = quase nada, 10 = o dia todo)</label>
+            <div class="radio-group">
+                <div class="radio-option" id="Tempo_sozinho">
+                    <label>1<br><input type="radio" name="Tempo_sozinho" value="1" required></label>
+                    <label>2<br><input type="radio" name="Tempo_sozinho" value="2"></label>
+                    <label>3<br><input type="radio" name="Tempo_sozinho" value="3"></label>
+                    <label>4<br><input type="radio" name="Tempo_sozinho" value="4"></label>
+                    <label>5<br><input type="radio" name="Tempo_sozinho" value="5"></label>
+                    <label>6<br><input type="radio" name="Tempo_sozinho" value="6"></label>
+                    <label>7<br><input type="radio" name="Tempo_sozinho" value="7"></label>
+                    <label>8<br><input type="radio" name="Tempo_sozinho" value="8"></label>
+                    <label>9<br><input type="radio" name="Tempo_sozinho" value="9"></label>
+                    <label>10<br><input type="radio" name="Tempo_sozinho" value="10"></label>
+                </div>
+            </div>
+
+            <label>Você sente medo ou desconforto ao falar em público?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <label>Sim<br><input type="radio" name="Medo_de_palco" value="Sim" required></label>
+                    <label>Não<br><input type="radio" name="Medo_de_palco" value="Não"></label>
+                </div>
+            </div>
+
+            <label>Com que frequência você participa de eventos sociais? (1 = nunca, 10 = sempre)</label>
+            <div class="radio-group">
+                <div class="radio-option" id="Participacao_evento_social">
+                    <label>1<br><input type="radio" name="Participacao_evento_social" value="1" required></label>
+                    <label>2<br><input type="radio" name="Participacao_evento_social" value="2"></label>
+                    <label>3<br><input type="radio" name="Participacao_evento_social" value="3"></label>
+                    <label>4<br><input type="radio" name="Participacao_evento_social" value="4"></label>
+                    <label>5<br><input type="radio" name="Participacao_evento_social" value="5"></label>
+                    <label>6<br><input type="radio" name="Participacao_evento_social" value="6"></label>
+                    <label>7<br><input type="radio" name="Participacao_evento_social" value="7"></label>
+                    <label>8<br><input type="radio" name="Participacao_evento_social" value="8"></label>
+                    <label>9<br><input type="radio" name="Participacao_evento_social" value="9"></label>
+                    <label>10<br><input type="radio" name="Participacao_evento_social" value="10"></label>
+                </div>
+            </div>
+        </div>
+        <div class="coluna">
+            <label>Com que frequência você sai de casa para lazer ou compromissos? (1 = quase nunca, 10 = todos os dias)</label>
+            <div class="radio-group">
+                <div class="radio-option" id="Sair_de_casa">
+                    <label>1<br><input type="radio" name="Sair_de_casa" value="1" required></label>
+                    <label>2<br><input type="radio" name="Sair_de_casa" value="2"></label>
+                    <label>3<br><input type="radio" name="Sair_de_casa" value="3"></label>
+                    <label>4<br><input type="radio" name="Sair_de_casa" value="4"></label>
+                    <label>5<br><input type="radio" name="Sair_de_casa" value="5"></label>
+                    <label>6<br><input type="radio" name="Sair_de_casa" value="6"></label>
+                    <label>7<br><input type="radio" name="Sair_de_casa" value="7"></label>
+                    <label>8<br><input type="radio" name="Sair_de_casa" value="8"></label>
+                    <label>9<br><input type="radio" name="Sair_de_casa" value="9"></label>
+                    <label>10<br><input type="radio" name="Sair_de_casa" value="10"></label>
+                </div>
+            </div>
+
+            <label>Você se sente cansado(a) depois de socializar com outras pessoas?</label>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <label>Sim<br><input type="radio" name="Cansaco_pos_socializacao_Yes" value="Sim" required></label>
+                    <label>Não<br><input type="radio" name="Cansaco_pos_socializacao_Yes" value="Não"></label>
+                </div>
+            </div>
+
+            <label>Quantos amigos próximos você tem? (1 = nenhum, 10 = muitos)</label>
+            <div class="radio-group">
+                <div class="radio-option" id="Tamanho_grupo_amigos">
+                    <label>1<br><input type="radio" name="Tamanho_grupo_amigos" value="1" required></label>
+                    <label>2<br><input type="radio" name="Tamanho_grupo_amigos" value="2"></label>
+                    <label>3<br><input type="radio" name="Tamanho_grupo_amigos" value="3"></label>
+                    <label>4<br><input type="radio" name="Tamanho_grupo_amigos" value="4"></label>
+                    <label>5<br><input type="radio" name="Tamanho_grupo_amigos" value="5"></label>
+                    <label>6<br><input type="radio" name="Tamanho_grupo_amigos" value="6"></label>
+                    <label>7<br><input type="radio" name="Tamanho_grupo_amigos" value="7"></label>
+                    <label>8<br><input type="radio" name="Tamanho_grupo_amigos" value="8"></label>
+                    <label>9<br><input type="radio" name="Tamanho_grupo_amigos" value="9"></label>
+                    <label>10<br><input type="radio" name="Tamanho_grupo_amigos" value="10"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 7ª pergunta centralizada embaixo -->
+    <div class="pergunta-final">
+        <label>Com que frequência você faz postagens em redes sociais? (1 = nunca, 10 = várias vezes ao dia)</label>
+        <div class="radio-group">
+            <div class="radio-option" id="Frequencia_posts">
+                <label>1<br><input type="radio" name="Frequencia_posts" value="1" required></label>
+                <label>2<br><input type="radio" name="Frequencia_posts" value="2"></label>
+                <label>3<br><input type="radio" name="Frequencia_posts" value="3"></label>
+                <label>4<br><input type="radio" name="Frequencia_posts" value="4"></label>
+                <label>5<br><input type="radio" name="Frequencia_posts" value="5"></label>
+                <label>6<br><input type="radio" name="Frequencia_posts" value="6"></label>
+                <label>7<br><input type="radio" name="Frequencia_posts" value="7"></label>
+                <label>8<br><input type="radio" name="Frequencia_posts" value="8"></label>
+                <label>9<br><input type="radio" name="Frequencia_posts" value="9"></label>
+                <label>10<br><input type="radio" name="Frequencia_posts" value="10"></label>
+            </div>
+        </div>
+    </div>
+    <button type="submit">Classificar</button>
+</form>
+
+
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+    const form = document.getElementById('formulario');
+    const resultadoDiv = document.getElementById("resultado");
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault(); // Impede o recarregamento da página
+
+        const dados = {
+            Tempo_sozinho: form.Tempo_sozinho.value,
+            Participacao_evento_social: form.Participacao_evento_social.value,
+            Sair_de_casa: form.Sair_de_casa.value,
+            Tamanho_grupo_amigos: form.Tamanho_grupo_amigos.value,
+            Frequencia_posts: form.Frequencia_posts.value,
+            Medo_de_palco: form.Medo_de_palco.value,
+            Cansaco_pos_socializacao_Yes: form.Cansaco_pos_socializacao_Yes.value,
+        };
+
+        const resposta = await fetch('/prever', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(dados)
+        });
+
+const resultado = await resposta.json();
+
+let emoji = "🤔";
+let mensagem = "Você possui um perfil equilibrado!";
+if (resultado.personalidade === "Introvertido") {
+    emoji = "🦉";
+    mensagem = "Você é mais reservado, gosta de momentos a sós e valoriza a tranquilidade.";
+} else if (resultado.personalidade === "Extrovertido") {
+    emoji = "🎉";
+    mensagem = "Você adora estar com pessoas, se sente energizado em eventos sociais e é comunicativo!";
+} 
+
+// Salva no localStorage
+localStorage.setItem('resultadoPersonalidade', JSON.stringify({
+    personalidade: resultado.personalidade,
+    emoji: emoji,
+    mensagem: mensagem
+}));
+
+// Redireciona para a página de resultado
+window.location.href = "resultado.html";
+
+    });
+</script>
+
+</body>
+</html>

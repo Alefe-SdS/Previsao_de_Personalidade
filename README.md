@@ -82,7 +82,7 @@ O arquivo ```atividadefinal.ipynb ``` contém a análise exploratória com visua
 
 ## 👤 Autores (GitHub)
 - [Álefe Santana dos Santos](https://github.com/Alefe-SdS/)
-- [Sarah da Costa Silva Lira](https://github.com/)
+- [Sarah da Costa Silva Lira](https://github.com/Esdraspenha)
 - [Esdras Penha](https://github.com/)
 
 
